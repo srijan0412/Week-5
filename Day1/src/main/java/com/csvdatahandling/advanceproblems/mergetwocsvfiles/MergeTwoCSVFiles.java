@@ -87,7 +87,7 @@ public class MergeTwoCSVFiles {
         return studentsMap;
     }
 
-    public void mergeAndWriteCSV(String filePath1, String filePath2, String outputFilePath) {
+    public static void mergeAndWriteCSV(String filePath1, String filePath2, String outputFilePath) {
         Map<Integer, Student> studentsMap = readStudents1(filePath1);
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath2))) {
@@ -121,12 +121,11 @@ public class MergeTwoCSVFiles {
     }
 
     public static void main(String[] args) {
-        String filePath1 = "C:\\Users\\yugap\\OneDrive\\Desktop\\cap\\Week_05\\Day01\\src\\student1.csv";
-        String filePath2 = "C:\\Users\\yugap\\OneDrive\\Desktop\\cap\\Week_05\\Day01\\src\\student2.csv";
-        String outputFilePath = "C:\\Users\\yugap\\OneDrive\\Desktop\\cap\\Week_05\\Day01\\src\\empty_students2.csv";
+        String filePath1 = "S:\\Capgemini\\Week-5\\Day1\\src\\main\\java\\com\\csvdatahandling\\advanceproblems\\mergetwocsvfiles\\student1.csv";
+        String filePath2 = "S:\\Capgemini\\Week-5\\Day1\\src\\main\\java\\com\\csvdatahandling\\advanceproblems\\mergetwocsvfiles\\student2.csv";
+        String outputFilePath = "S:\\Capgemini\\Week-5\\Day1\\src\\main\\java\\com\\csvdatahandling\\advanceproblems\\mergetwocsvfiles\\outputfile.csv";
 
-        CSVMerger merger = new CSVMerger();
-        merger.mergeAndWriteCSV(filePath1, filePath2, outputFilePath);
+        mergeAndWriteCSV(filePath1, filePath2, outputFilePath);
 
         System.out.println("Merging completed! Merged file created at: " + outputFilePath);
     }
